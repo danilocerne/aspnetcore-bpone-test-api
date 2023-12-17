@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPOneTestAPI.Domain", "BPOn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPOneTestAPI.Application", "BPOneTestAPI.Application\BPOneTestAPI.Application.csproj", "{BD805542-F0EA-4BDE-913C-B990EB35CDF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPOneTestAPI.Infra.Data", "BPOneTestAPI.Infra.Data\BPOneTestAPI.Infra.Data.csproj", "{E256573C-6DF9-4280-9BF8-7055678D3894}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD805542-F0EA-4BDE-913C-B990EB35CDF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD805542-F0EA-4BDE-913C-B990EB35CDF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD805542-F0EA-4BDE-913C-B990EB35CDF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E256573C-6DF9-4280-9BF8-7055678D3894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E256573C-6DF9-4280-9BF8-7055678D3894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E256573C-6DF9-4280-9BF8-7055678D3894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E256573C-6DF9-4280-9BF8-7055678D3894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
