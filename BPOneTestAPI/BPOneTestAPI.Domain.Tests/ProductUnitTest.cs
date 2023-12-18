@@ -97,7 +97,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update Product with valid state")]
     public void UpdateProduct_WithValidParameters_ResultObjectValidState()
     {
-        Action action = () => new Product("Product updated", "Description updated", 300.00m, 10, 1, 1);
+        Action action = () => new Product("Product updated", "Description updated",
+            300.00m, 10, 1, 1).Update("Product updated", "Description updated",
+            300.00m, 10, 1, 1);
         action.Should()
             .NotThrow<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>();
     }
@@ -105,7 +107,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update Product with null name")]
     public void UpdateProduct_NullNameValue_DomainExceptionInvalidNullName()
     {
-        Action action = () => new Product(null, "Example description", 100.00m, 1, 1, 1);
+        Action action = () => new Product(null, "Example description",
+            100.00m, 1, 1, 1).Update(null, "Example description",
+            100.00m, 1, 1, 1);
         action.Should()
             .Throw<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>()
             .WithMessage("Invalid name. Name is required");
@@ -114,7 +118,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update Product with empty name")]
     public void UpdateProduct_EmptyNameValue_DomainExceptionInvalidEmptyName()
     {
-        Action action = () => new Product("", "Example description", 100.00m, 1, 1, 1);
+        Action action = () => new Product("", "Example description",
+            100.00m, 1, 1, 1).Update("", "Example description",
+            100.00m, 1, 1, 1);
         action.Should()
             .Throw<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>()
             .WithMessage("Invalid name. Name is required");
@@ -123,7 +129,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update Product with null description")]
     public void UpdateProduct_NullDescriptionValue_DomainExceptionInvalidNullDescription()
     {
-        Action action = () => new Product("Product name updated", null, 100.00m, 1, 1, 1);
+        Action action = () => new Product("Product name updated", null,
+            100.00m, 1, 1, 1).Update("Product name updated", null,
+            100.00m, 1, 1, 1);
         action.Should()
             .Throw<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>()
             .WithMessage("Invalid description. Description is required");
@@ -132,7 +140,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update Product with empty description")]
     public void UpdateProduct_EmptyDescriptionValue_DomainExceptionInvalidEmptyDescription()
     {
-        Action action = () => new Product("Product name updated", "", 100.00m, 1, 1, 1);
+        Action action = () => new Product("Product name updated", "",
+            100.00m, 1, 1, 1).Update("Product name updated", "",
+            100.00m, 1, 1, 1);
         action.Should()
             .Throw<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>()
             .WithMessage("Invalid description. Description is required");
@@ -141,7 +151,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update product with negative price")]
     public void UpdateProduct_NegativePriceValue_DomainExceptionInvalidNegativePrice()
     {
-        Action action = () => new Product(1, "Product name", "Description", -100.00m, 1, 1, 1);
+        Action action = () => new Product(1, "Product name", "Description",
+            -100.00m, 1, 1, 1).Update("Product name", "Description",
+            -100.00m, 1, 1, 1);
         action.Should()
             .Throw<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>()
             .WithMessage("Invalid price value");
@@ -150,7 +162,9 @@ public class ProductUnitTest
     [Fact(DisplayName = "Update product with negative stock")]
     public void UpdateProduct_NegativeStockValue_DomainExceptionInvalidNegativeStock()
     {
-        Action action = () => new Product(1, "Product name", "Description", 100.00m, -1, 1, 1);
+        Action action = () => new Product(1, "Product name", "Description",
+            100.00m, -1, 1, 1).Update("Product name", "Description",
+            100.00m, -1, 1, 1);
         action.Should()
             .Throw<BPOneTestAPI.Domain.Validation.DomainExceptionValidation>()
             .WithMessage("Invalid stock value");
