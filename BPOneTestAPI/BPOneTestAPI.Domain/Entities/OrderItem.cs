@@ -2,8 +2,8 @@
 
 namespace BPOneTestAPI.Domain.Entities
 {
-	public sealed class OrderItem : Entity
-	{
+    public sealed class OrderItem : Entity
+    {
         public int OrderId { get; set; }
         public Order Order { get; set; }
         public int ProductId { get; set; }
@@ -67,4 +67,3 @@ namespace BPOneTestAPI.Domain.Entities
         }
     }
 }
-

@@ -2,28 +2,28 @@
 
 namespace BPOneTestAPI.Domain.Entities
 {
-	public sealed class Product : Entity
-	{
-		public string Name { get; private set; }
-		public string Description { get; private set; }
-		public decimal Price { get; private set; }
-		public int Stock { get; private set; }
-		public int ProductCategoryId { get; set; }
+    public sealed class Product : Entity
+    {
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public decimal Price { get; private set; }
+        public int Stock { get; private set; }
+        public int ProductCategoryId { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public int Active { get; private set; }
 
-		public Product(string name, string description, decimal price, int stock,
-			int productCategoryId, int active)
-		{
+        public Product(string name, string description, decimal price, int stock,
+            int productCategoryId, int active)
+        {
             ValidateDomain(name, description, price, stock);
             Name = name;
-			Description = description;
-			Price = price;
-			Stock = stock;
-			ProductCategoryId = productCategoryId;
-			Active = active;
+            Description = description;
+            Price = price;
+            Stock = stock;
+            ProductCategoryId = productCategoryId;
+            Active = active;
 
-		}
+        }
 
         public Product(int id, string name, string description, decimal price, int stock,
             int productCategoryId, int active)
@@ -39,8 +39,8 @@ namespace BPOneTestAPI.Domain.Entities
             Active = active;
         }
 
-		private void ValidateDomain(string name, string description, decimal price, int stock)
-		{
+        private void ValidateDomain(string name, string description, decimal price, int stock)
+        {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name),
                 "Invalid name. Name is required");
 
@@ -73,4 +73,3 @@ namespace BPOneTestAPI.Domain.Entities
         }
     }
 }
-
