@@ -2,18 +2,18 @@
 
 namespace BPOneTestAPI.Domain.Entities
 {
-	public sealed class Order : Entity
-	{
-		public int ClientId { get; set; }
-		public Client Client { get; set; }
+    public sealed class Order : Entity
+    {
+        public int ClientId { get; set; }
+        public Client Client { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
         public int Active { get; private set; }
 
-		public Order(int clientId, int active)
-		{
+        public Order(int clientId, int active)
+        {
             ValidateDomain(clientId);
             Active = active;
-		}
+        }
 
         public Order(int id, int clientId, int active)
         {
@@ -38,4 +38,3 @@ namespace BPOneTestAPI.Domain.Entities
 
     }
 }
-
