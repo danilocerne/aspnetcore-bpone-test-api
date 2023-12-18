@@ -2,8 +2,8 @@
 
 namespace BPOneTestAPI.Domain.Interfaces
 {
-	public interface IProductRepository
-	{
+    public interface IProductRepository
+    {
         Task<IEnumerable<Product>> GetProductsAsync();
         Task<Product> GetByIdAsync(int? id);
         Task<Product> GetProductByCategoryIdAsync(int? id);
@@ -12,4 +12,3 @@ namespace BPOneTestAPI.Domain.Interfaces
         Task<Product> RemoveAsync(Product product);
     }
 }
-

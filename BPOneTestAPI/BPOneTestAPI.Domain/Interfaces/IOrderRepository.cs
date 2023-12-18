@@ -2,8 +2,8 @@
 
 namespace BPOneTestAPI.Domain.Interfaces
 {
-	public interface IOrderRepository
-	{
+    public interface IOrderRepository
+    {
         Task<Order> GetOrderByAssync(int? orderId);
         Task<Client> GetClientByAssync(int? orderId);
         Task<Client> GetClientByAssync(int? orderId, int? clientId);
@@ -17,4 +17,3 @@ namespace BPOneTestAPI.Domain.Interfaces
         Task<Order> RemoveAsync(Order order);
     }
 }
-
