@@ -11,22 +11,22 @@ namespace BPOneTestAPI.Domain.Entities
         public int Amount { get; private set; }
         public decimal UnitPrice { get; private set; }
         public decimal TotalPrice { get; private set; }
-        public int Active { get; private set; }
 
         public OrderItem(int orderId, int productId, int amount, decimal unitPrice,
-            decimal totalPrice, int active)
+            decimal totalPrice)
         {
+            ValidateDomain(orderId, productId, amount, unitPrice, totalPrice);
             OrderId = orderId;
             ProductId = productId;
             Amount = amount;
             UnitPrice = unitPrice;
             TotalPrice = totalPrice;
-            Active = active;
         }
 
         public OrderItem(int id, int orderId, int productId, int amount, decimal unitPrice,
-            decimal totalPrice, int active)
+            decimal totalPrice)
         {
+            DomainExceptionValidation.When(id < 0, "Invalid Id value");
             Id = id;
             ValidateDomain(orderId, productId, amount, unitPrice, totalPrice);
             OrderId = orderId;
@@ -34,7 +34,6 @@ namespace BPOneTestAPI.Domain.Entities
             Amount = amount;
             UnitPrice = unitPrice;
             TotalPrice = totalPrice;
-            Active = active;
         }
 
         private void ValidateDomain(int orderId, int productId, int amount,
@@ -43,7 +42,7 @@ namespace BPOneTestAPI.Domain.Entities
             DomainExceptionValidation.When(orderId < 0,
                 "Invalid Order Id. Order Id is required");
 
-            DomainExceptionValidation.When(orderId < 0,
+            DomainExceptionValidation.When(productId < 0,
                 "Invalid Product Id. Product Id is required");
 
             DomainExceptionValidation.When(amount < 0,
