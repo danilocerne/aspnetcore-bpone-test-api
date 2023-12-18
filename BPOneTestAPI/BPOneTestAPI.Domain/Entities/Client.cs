@@ -4,12 +4,12 @@ using BPOneTestAPI.Domain.Validation;
 namespace BPOneTestAPI.Domain.Entities
 {
     public sealed class Client : Entity, ICpfCnpj
-	{
-		public string Name { get; private set; }
-		public string CpfCnpj { get; private set; }
-		public string Address { get; private set; }
-		public string Number { get; private set; }
-		public string Phone { get; private set; }
+    {
+        public string Name { get; private set; }
+        public string CpfCnpj { get; private set; }
+        public string Address { get; private set; }
+        public string Number { get; private set; }
+        public string Phone { get; private set; }
         public ICollection<Order> Orders { get; set; }
         public int Active { get; private set; }
 
@@ -22,8 +22,8 @@ namespace BPOneTestAPI.Domain.Entities
         private static readonly int[] CnpjMultiplier2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
         public Client(string name, string cpfCnpj, string address, string number,
-			string phone, int active)
-		{
+            string phone, int active)
+        {
             ValidateDomain(name);
             Name = name;
             CpfCnpjValidation(cpfCnpj);
@@ -204,4 +204,3 @@ namespace BPOneTestAPI.Domain.Entities
         }
     }
 }
-
