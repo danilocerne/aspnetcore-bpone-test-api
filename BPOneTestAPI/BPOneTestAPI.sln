@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPOneTestAPI.Infra.IoC", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPOneTestAPI.API", "BPOneTestAPI.API\BPOneTestAPI.API.csproj", "{DF5BC160-3EE1-48DC-BCA5-1398CB73E93E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPOneTestAPI.Domain.Tests", "BPOneTestAPI.Domain.Tests\BPOneTestAPI.Domain.Tests.csproj", "{82E92E16-0923-48C4-821B-BBEB83BCF8C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DF5BC160-3EE1-48DC-BCA5-1398CB73E93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF5BC160-3EE1-48DC-BCA5-1398CB73E93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF5BC160-3EE1-48DC-BCA5-1398CB73E93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E92E16-0923-48C4-821B-BBEB83BCF8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E92E16-0923-48C4-821B-BBEB83BCF8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E92E16-0923-48C4-821B-BBEB83BCF8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E92E16-0923-48C4-821B-BBEB83BCF8C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
