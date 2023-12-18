@@ -28,7 +28,8 @@ namespace BPOneTestAPI.Domain.Entities
         public Product(int id, string name, string description, decimal price, int stock,
             int productCategoryId, int active)
         {
-			Id = id;
+            DomainExceptionValidation.When(id < 0, "Invalid Id value");
+            Id = id;
             ValidateDomain(name, description, price, stock);
             Name = name;
             Description = description;
@@ -48,6 +49,9 @@ namespace BPOneTestAPI.Domain.Entities
 
             DomainExceptionValidation.When(string.IsNullOrEmpty(description),
                 "Invalid description. Description is required");
+
+            DomainExceptionValidation.When(description.Length < 10,
+                "Invalid description, too short, minimum 10 characteres");
 
             DomainExceptionValidation.When(price < 0,
                 "Invalid price value");
