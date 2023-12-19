@@ -1,4 +1,8 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using BPOneTestAPI.Infra.IoC;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddInfrastructureMySql(builder.Configuration);
 
 // Add services to the container.
 
