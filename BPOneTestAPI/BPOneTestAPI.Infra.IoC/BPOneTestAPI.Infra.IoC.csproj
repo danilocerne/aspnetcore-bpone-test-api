@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BPOneTestAPI.Domain\BPOneTestAPI.Domain.csproj" />
+    <ProjectReference Include="..\BPOneTestAPI.Application\BPOneTestAPI.Application.csproj" />
+    <ProjectReference Include="..\BPOneTestAPI.Infra.Data\BPOneTestAPI.Infra.Data.csproj" />
+  </ItemGroup>
 </Project>
