@@ -1,7 +1,10 @@
-﻿using BPOneTestAPI.Infra.Data.Context;
+﻿using BPOneTestAPI.Domain.Interfaces;
+using BPOneTestAPI.Infra.Data.Context;
+using BPOneTestAPI.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace BPOneTestAPI.Infra.IoC
 {
@@ -15,19 +18,21 @@ namespace BPOneTestAPI.Infra.IoC
             services.AddDbContext<ApplicationDbContext>(
 
                 options => options.UseMySql(connection,
-                ServerVersion.AutoDetect(connection),
-                mySqlOptions =>
-                {
-                    mySqlOptions.EnableRetryOnFailure(
-                        maxRetryCount: 10,
-                        maxRetryDelay: TimeSpan.FromSeconds(30),
-                        errorNumbersToAdd: null);
+                    ServerVersion.Create(new Version(8, 0, 34), ServerType.MySql),
+                    mySqlOptions =>
+                    {
+                        mySqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 10,
+                            maxRetryDelay: TimeSpan.FromSeconds(30),
+                            errorNumbersToAdd: null);
 
-                    mySqlOptions.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
-                }
+                        mySqlOptions.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                    }
                 )
 
-             );
+            );
+            services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
         }
