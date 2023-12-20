@@ -16,7 +16,6 @@ namespace BPOneTestAPI.Infra.IoC
         {
             var connection = configuration.GetConnectionString("DataBase_BPOneTestAPI");
             services.AddDbContext<ApplicationDbContext>(
-
                 options => options.UseMySql(connection,
                     ServerVersion.Create(new Version(8, 0, 34), ServerType.MySql),
                     mySqlOptions =>

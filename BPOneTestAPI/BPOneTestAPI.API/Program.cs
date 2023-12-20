@@ -1,19 +1,24 @@
-﻿using BPOneTestAPI.Infra.IoC;
+﻿using BPOneTestAPI.API;
+//using BPOneTestAPI.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddInfrastructureMySql(builder.Configuration);
+var startup = new Startup(builder.Configuration);
+startup.ConfigureServices(builder.Services);
 
-// Add services to the container.
+/*builder.Services.AddInfrastructureMySql(builder.Configuration);
+
+//Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();*/
 
 var app = builder.Build();
+startup.Configure(app, app.Environment);
 
-// Configure the HTTP request pipeline.
+/*// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -24,7 +29,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers();*/
 
 app.Run();
 
